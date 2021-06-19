@@ -1,0 +1,28 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depth: 3
+script:
+  - yarn test
+notification:
+  email:
+      recipients:
+      - yeicostar.88@gmail.com
+      - codingwilkins@gmail.com
+      on_success: always
+      on_failure: always
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 91a1040f-433f-4af8-8230-5d1e8a62510f
+  app: platzi-store-backend-001
+  on:
+    repo: yeicos/platzi-store-backend
